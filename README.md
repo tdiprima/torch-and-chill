@@ -1,4 +1,6 @@
-# PyTorch and JAX and Transformers + Diffusers
+# Torch and Chill 😎
+
+PyTorch, JAX, Transformers + Diffusers
 
 **Repo based on this advice:**
 
