@@ -23,6 +23,7 @@ class SimpleNet(nn.Module):
 # Load MNIST data
 transform = transforms.Compose([transforms.ToTensor(), transforms.Normalize((0.5,), (0.5,))])
 train_data = datasets.MNIST(root="./data", train=True, download=True, transform=transform)
+test_data = datasets.MNIST(root="./data", train=False, download=True, transform=transform)
 
 train_loader = DataLoader(train_data, batch_size=64, shuffle=True)
 
@@ -41,15 +42,22 @@ for images, labels in train_loader:
 
 print("Training complete! (This is a simplified example.)")
 
-class_names = train_data.classes
+# Make predictions on test data
+model.eval()
+class_names = test_data.classes
 rows, cols = 4, 4
 fig = plt.figure(figsize=(7, 7))
 
 for i in range(1, rows * cols + 1):
-  img, label = train_data[i]
+  img, true_label = test_data[i]
+  with torch.no_grad():
+    prediction = model(img.unsqueeze(0))
+    predicted_label = torch.argmax(prediction, dim=1).item()
+  
   fig.add_subplot(rows, cols, i)
   plt.imshow(img.squeeze(), cmap="jet")
-  plt.title(class_names[label])
+  # plt.title(f"Pred: {class_names[predicted_label]}, True: {class_names[true_label]}")
+  plt.title(f"P: {class_names[predicted_label]}, T: {class_names[true_label]}")
   plt.axis(False)
 
 plt.show()
