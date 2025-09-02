@@ -11,3 +11,4 @@ jaxlib
 diffusers
 transformers
 numpy<2
+matplotlib

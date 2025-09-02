@@ -1,3 +1,4 @@
+import matplotlib.pyplot as plt
 import torch
 import torch.nn as nn
 import torch.optim as optim
@@ -20,12 +21,9 @@ class SimpleNet(nn.Module):
 
 
 # Load MNIST data
-transform = transforms.Compose(
-    [transforms.ToTensor(), transforms.Normalize((0.5,), (0.5,))]
-)
-train_data = datasets.MNIST(
-    root="./data", train=True, download=True, transform=transform
-)
+transform = transforms.Compose([transforms.ToTensor(), transforms.Normalize((0.5,), (0.5,))])
+train_data = datasets.MNIST(root="./data", train=True, download=True, transform=transform)
+
 train_loader = DataLoader(train_data, batch_size=64, shuffle=True)
 
 # Initialize model, loss, and optimizer
@@ -42,3 +40,16 @@ for images, labels in train_loader:
     optimizer.step()
 
 print("Training complete! (This is a simplified example.)")
+
+class_names = train_data.classes
+rows, cols = 4, 4
+fig = plt.figure(figsize=(7, 7))
+
+for i in range(1, rows * cols + 1):
+  img, label = train_data[i]
+  fig.add_subplot(rows, cols, i)
+  plt.imshow(img.squeeze(), cmap="jet")
+  plt.title(class_names[label])
+  plt.axis(False)
+
+plt.show()
