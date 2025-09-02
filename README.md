@@ -51,7 +51,7 @@ You don't wanna reinvent the wheel → you want sentiment analysis or Stable Dif
 **Mini-quests:**
 
 * [my\_transformers.py](my_transformers.py) → sentiment analysis.
-* [my\_diffusers.py](generate_image/my_diffusers.py) → text-to-image generation.
+* [my\_diffusers.py](my_diffusers.py) → text-to-image generation.
 
 ### ✨ TL;DR:
 
