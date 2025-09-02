@@ -1,4 +1,4 @@
-# torch jax transform
+# PyTorch and JAX and Transformers + Diffusers
 
 **Repo based on this advice:**
 
@@ -12,7 +12,7 @@
 
 ---
 
-### ⚡️ PyTorch — "The crowd favorite"
+## ⚡️ PyTorch — "The crowd favorite"
 
 * Made by Meta (ex-Facebook).
 * Dynamic graphs = you can literally `if`, `for`, `while` inside your model.
@@ -26,7 +26,7 @@ You wanna tinker, break stuff, debug on the fly.
 [my\_torch.py](my_torch.py) → trains MNIST digits.  
 (yes, the classic "can it see numbers?" test).
 
-### 🚀 JAX — "Math, but on steroids"
+## 🚀 JAX — "Math, but on steroids"
 
 * Made by Google.
 * Feels like NumPy, but secretly… auto-grad + JIT compilation.
@@ -39,7 +39,7 @@ You care about raw *speed* + want to play with research-level tricks.
 **Mini-quest:**  
 [my\_jax.py](my_jax.py) → gradient + JIT + vmap = lightning fast math magic.
 
-### 🤖 Hugging Face Transformers + Diffusers — "The prebuilt toolkits"
+## 🤖 Hugging Face Transformers + Diffusers — "The prebuilt toolkits"
 
 * Transformers = NLP, vision-language, multimodal.
 * Diffusers = text-to-image, generative vibes.
@@ -53,7 +53,7 @@ You don't wanna reinvent the wheel → you want sentiment analysis or Stable Dif
 * [my\_transformers.py](my_transformers.py) → sentiment analysis.
 * [my\_diffusers.py](generate_image/my_diffusers.py) → text-to-image generation.
 
-✨ TL;DR:
+### ✨ TL;DR:
 
 * PyTorch → flexible prototyping → backend for Hugging Face.
 * JAX → crazy fast research → shines on TPUs.
